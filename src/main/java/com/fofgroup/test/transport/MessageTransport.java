@@ -2,10 +2,6 @@
  * Created by Pavel Gavrilov
  */
 
-/*
- * Created by Pavel Gavrilov
- */
-
 package com.fofgroup.test.transport;
 
 import com.fofgroup.test.api.Message;
