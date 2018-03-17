@@ -1,6 +1,17 @@
-package com.fofgroup.test.demo.mock;
+/*
+ * Created by Pavel Gavrilov
+ */
 
-import java.util.*;
+package com.fofgroup.test.demo;
+
+import com.fofgroup.test.demo.mock.MockNanoService;
+import com.fofgroup.test.demo.mock.MockSubscriber;
+import com.fofgroup.test.demo.mock.MockTopic;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MockSubscriberGenerator implements MockTopics, Runnable {

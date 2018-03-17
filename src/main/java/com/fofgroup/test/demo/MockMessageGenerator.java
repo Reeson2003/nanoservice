@@ -1,14 +1,16 @@
-package com.fofgroup.test.demo.mock;
+/*
+ * Created by Pavel Gavrilov
+ */
+
+package com.fofgroup.test.demo;
 
 import com.fofgroup.test.api.MessageBroker;
-
-import java.util.Random;
+import com.fofgroup.test.demo.mock.MockMessage;
 
 public class MockMessageGenerator implements MockTopics, Runnable{
     private static final int DELAY = 1;
     private long counter = 0;
     MessageBroker<MockMessage> messageBroker;
-    private Random random = new Random(System.nanoTime());
 
     public MockMessageGenerator(MessageBroker<MockMessage> messageBroker) {
         this.messageBroker = messageBroker;

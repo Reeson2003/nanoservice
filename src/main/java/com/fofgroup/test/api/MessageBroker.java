@@ -1,3 +1,7 @@
+/*
+ * Created by Pavel Gavrilov
+ */
+
 package com.fofgroup.test.api;
 
 import com.fofgroup.test.service.ServiceLocator;
@@ -24,8 +28,7 @@ public interface MessageBroker<T extends Message> {
                 .parallelStream()
                 .forEach(id -> ServiceLocator
                         .getInstance()
-                        .getMessageTransportFactory()
-                        .getTransport()
+                        .getMessageTransport()
                         .send(ServiceLocator.
                                 getInstance().
                                 getSubscriberStore().

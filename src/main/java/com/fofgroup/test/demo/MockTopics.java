@@ -1,4 +1,10 @@
-package com.fofgroup.test.demo.mock;
+/*
+ * Created by Pavel Gavrilov
+ */
+
+package com.fofgroup.test.demo;
+
+import com.fofgroup.test.demo.mock.MockTopic;
 
 import java.util.*;
 
