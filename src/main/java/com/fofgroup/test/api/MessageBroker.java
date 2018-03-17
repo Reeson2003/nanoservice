@@ -1,11 +1,12 @@
 package com.fofgroup.test.api;
 
-import com.fofgroup.test.core.ServiceLocator;
+import com.fofgroup.test.service.ServiceLocator;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
 
 /**
+ *
  * Interface to send message from abstract message source
  */
 public interface MessageBroker<T extends Message> {
@@ -14,15 +15,20 @@ public interface MessageBroker<T extends Message> {
      * @param message message to send
      */
     default void send(T message) {
-        message.getTopicIds()
+        message.getTopics()
                 .stream()
-                .map(ServiceLocator.getInstance().getSubscriberStorage()::getByTopic)
+                .map(Topic::getId)
+                .map(ServiceLocator.getInstance().getTopicSubscriberMap()::getByTopic)
                 .flatMap(Collection::stream)
                 .collect(Collectors.toSet())
+                .parallelStream()
                 .forEach(id -> ServiceLocator
                         .getInstance()
                         .getMessageTransportFactory()
-                        .getTransport(message.getClass())
-                        .send(id, message));
+                        .getTransport()
+                        .send(ServiceLocator.
+                                getInstance().
+                                getSubscriberStore().
+                                getSubscriber(id), message));
     }
 }

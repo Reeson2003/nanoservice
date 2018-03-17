@@ -1,4 +1,4 @@
-package com.fofgroup.test.mock;
+package com.fofgroup.test.demo.mock;
 
 import com.fofgroup.test.api.MessageBroker;
 

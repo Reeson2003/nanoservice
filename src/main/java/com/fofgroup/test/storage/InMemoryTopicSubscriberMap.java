@@ -1,11 +1,12 @@
 package com.fofgroup.test.storage;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class InMemorySubscriberStorage implements SubscriberStorage {
+public class InMemoryTopicSubscriberMap implements TopicSubscriberMap {
     /**
      * Map of topic IDs on set of subscriber IDs
      */
@@ -38,6 +39,6 @@ public class InMemorySubscriberStorage implements SubscriberStorage {
 
     @Override
     public Collection<Long> getByTopic(Long topicId) {
-        return storage.get(topicId);
+        return storage.get(topicId) == null ? Collections.EMPTY_LIST : storage.get(topicId);
     }
 }

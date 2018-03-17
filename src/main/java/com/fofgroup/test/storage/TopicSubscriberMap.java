@@ -5,7 +5,7 @@ import java.util.Collection;
 /**
  * Storage of subscribers of topics
  */
-public interface SubscriberStorage {
+public interface TopicSubscriberMap {
     /**
      * adds subscriber in storage
      * @param subscriberId id of subscriber
